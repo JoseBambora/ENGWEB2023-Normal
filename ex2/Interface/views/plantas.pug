@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    h1.w3-yellow(tyle="text-shadow:2px 2px 0 #444",style="margin-top: 0px;")
+        b.w3-margin-left Lista plantas
+    .w3-container
+        table.w3-table-all.w3-hoverable.w3-card-4
+            thead
+                tr.w3-red
+                    th _id
+                    th Freguesia
+                    th Espécie
+                    th Estado
+                    th Número de intervenções
+            each planta in plantas
+                tr
+                    td
+                        a(href='/'+planta._id)= planta._id 
+                    td= planta.Freguesia
+                    td 
+                        a(href='/especies/'+planta.Espécie)= planta.Espécie
+                    td= planta.Estado
+                    td= planta.num_int       
+        

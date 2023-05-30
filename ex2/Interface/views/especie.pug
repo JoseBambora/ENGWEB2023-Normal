@@ -1,0 +1,36 @@
+extends layout
+
+block content
+    h1.w3-yellow(tyle="text-shadow:2px 2px 0 #444",style="margin-top: 0px;")
+        b.w3-margin-left Especie #{nome}
+    .w3-container
+        .w3-panel.w3-light-grey.w3-border.w3-border-orange.w3-card-4
+            h3.w3-text-red(tyle="text-shadow:2px 2px 0 #444")
+                b Nome
+            p= nome
+        .w3-panel.w3-light-grey.w3-border.w3-border-orange.w3-card-4
+            h3.w3-text-red(tyle="text-shadow:2px 2px 0 #444")
+                b Nome científico
+            p= desg_cientif
+        .w3-panel.w3-light-grey.w3-border.w3-border-orange.w3-card-4
+            h3.w3-text-red(tyle="text-shadow:2px 2px 0 #444")
+                b Registos   
+            table.w3-table-all.w3-hoverable
+                thead
+                    tr.w3-red
+                        th _id
+                        th Freguesia
+                        th Estado
+                        th Número de intervenções
+                each planta in plantas
+                    tr
+                        td
+                            a(href='/'+planta._id)= planta._id 
+                        td= planta.Freguesia
+                        td= planta.Estado
+                        td= planta.num_int
+            br
+        br
+        a.w3-btn.w3-red.w3-border.w3-border-orange.w3-hover-light-red(href="/") Voltar
+      
+                
