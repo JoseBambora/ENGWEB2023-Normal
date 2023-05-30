@@ -1,0 +1,53 @@
+- Id -> _id
+- Número de Registo -> num_registo
+- Código de rua -> cod_rua
+- Nome Científico -> nom_cie
+- Data de Plantação -> data_plant
+- Data de actualização -> data_atua
+- Número de intervenções -> num_int
+
+Exemplo: 
+
+{
+    _id : 20615557,
+    num_registo : 3,
+    cod_rua : 1685467,
+    Rua : "Rua Júlio Dinis",
+    Local : "Zambujeiro",
+    Freguesia : "Alcabideche",
+    Espécie : "pinheiro manso",
+    nom_cie : "Pinus pinea",
+    Origem : "",
+    data_plant : "",
+    Estado : "Adulto",
+    Caldeira : "Sim",
+    Tutor : "Sim",
+    Implantação : "Arruamento",
+    Gestor : "DGEV",
+    data_atua : "23/07/2021 19:50:54",
+    num_int : 6
+}
+
+Importar para o mongo:
+- cd ex1/
+- mongoimport -d plantas -c plantas -jsonArray plantas.js
+
+Queries mongodb:
+
+1. db.plantas.find().count()
+2. db.plantas.find({'Freguesia':'São Domingos de Rana'}).count()
+3. db.plantas.distinct('Freguesia').filter(str => str.length > 0).sort()
+4. db.plantas.aggregate([{$group: {_id:'$Freguesia',distribuicao:{$count: {}}}}])
+5. db.plantas.aggregate([{$group: {_id:'$Espécie',distribuicao:{$count: {}}}}])
+
+Iniciar a aplicação:
+
+- APIDados:
+    - cd ex1/APIDados/
+    - npm i
+    - npm start
+- Interface:
+    - cd ex2/Interface/
+    - npm i
+    - npm start
+
