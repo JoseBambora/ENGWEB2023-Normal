@@ -1,3 +1,4 @@
+Mudanças no dataset
 - Id -> _id
 - Número de Registo -> num_registo
 - Código de rua -> cod_rua
